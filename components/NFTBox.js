@@ -91,8 +91,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
               })
     }
 
-    const handleBuyItemSuccess = async (tx) => {
-        await tx.wait(1)
+    const handleBuyItemSuccess = async () => {
         dispatch({
             type: "success",
             message: "Item bought!",
@@ -130,6 +129,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
                                         src={imageURI}
                                         height={200}
                                         width={200}
+                                        alt="NFT Image"
                                     />
                                     <div className="font-bold">
                                         {ethers.utils.formatUnits(price, "ether")} ETH
