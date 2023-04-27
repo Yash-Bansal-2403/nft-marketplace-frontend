@@ -86,9 +86,9 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
         isOwnedByUser
             ? setShowModal(true)
             : buyItem({
-                onError: (error) => console.log(error),
-                onSuccess: handleBuyItemSuccess,
-            })
+                  onError: (error) => console.log(error),
+                  onSuccess: handleBuyItemSuccess,
+              })
     }
 
     const handleBuyItemSuccess = async (tx) => {
@@ -105,7 +105,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
         <div>
             <div>
                 {imageURI ? (
-                    <div>
+                    <div className=" mx-4">
                         <UpdateListingModal
                             isVisible={showModal}
                             tokenId={tokenId}
@@ -117,6 +117,7 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
                             title={tokenName}
                             description={tokenDescription}
                             onClick={handleCardClick}
+                            className="w-500 h-500 mx-4"
                         >
                             <div className="p-2">
                                 <div className="flex flex-col items-end gap-2">
@@ -127,8 +128,8 @@ export default function NFTBox({ price, nftAddress, tokenId, marketplaceAddress,
                                     <Image
                                         loader={() => imageURI}
                                         src={imageURI}
-                                        height="200"
-                                        width="200"
+                                        height={200}
+                                        width={200}
                                     />
                                     <div className="font-bold">
                                         {ethers.utils.formatUnits(price, "ether")} ETH
